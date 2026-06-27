@@ -1,0 +1,844 @@
+{
+  "item": [
+    {
+      "id": "79121ffb-6b59-45b8-b43b-5fbb00208d4a",
+      "name": "Hotel Data",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c8277e8a-ad0a-4ab7-a475-1859f9ffc9e3",
+          "name": "List hotels",
+          "request": {
+            "name": "List hotels",
+            "description": {},
+            "url": {
+              "path": [
+                "data",
+                "hotels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "5926211c-7201-4674-b5e8-0f70e27c1abb",
+          "name": "Get hotel details",
+          "request": {
+            "name": "Get hotel details",
+            "description": {},
+            "url": {
+              "path": [
+                "data",
+                "hotel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "1b22b6cb-e7df-46cd-8322-014b447373f9",
+          "name": "Get hotel reviews",
+          "request": {
+            "name": "Get hotel reviews",
+            "description": {},
+            "url": {
+              "path": [
+                "data",
+                "reviews"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "a2154b4b-8559-4e97-8eaf-3fcfb5e16f6a",
+          "name": "List countries",
+          "request": {
+            "name": "List countries",
+            "description": {},
+            "url": {
+              "path": [
+                "data",
+                "countries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "4c4ffa0f-cafa-4230-90ac-4adea35d4be1",
+          "name": "List cities",
+          "request": {
+            "name": "List cities",
+            "description": {},
+            "url": {
+              "path": [
+                "data",
+                "cities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "0aea7777-b983-44fa-9ff6-0868af3ada32",
+          "name": "List currencies",
+          "request": {
+            "name": "List currencies",
+            "description": {},
+            "url": {
+              "path": [
+                "data",
+                "currencies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "522d2b53-1ec0-4d73-a627-0e2fd119f486",
+          "name": "List IATA codes",
+          "request": {
+            "name": "List IATA codes",
+            "description": {},
+            "url": {
+              "path": [
+                "data",
+                "iatacodes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "d4be104d-fda2-4eba-b6e9-62fb0d1a0cb8",
+      "name": "Rates",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "00c9a9a2-3ffa-49eb-b0f9-ff0c2f0280fb",
+          "name": "Search hotel rates",
+          "request": {
+            "name": "Search hotel rates",
+            "description": {},
+            "url": {
+              "path": [
+                "hotels",
+                "rates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hotelIds\": [\n    \"<string>\"\n  ],\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"occupancies\": [\n    {\n      \"adults\": 2,\n      \"children\": []\n    }\n  ],\n  \"currency\": \"USD\",\n  \"guestNationality\": \"US\",\n  \"margin\": 15\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "f9c1479d-4201-4177-a78b-372cfd2947c4",
+      "name": "Booking",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b6134e7e-abc9-4142-8ceb-05f7a579098b",
+          "name": "Prebook a rate",
+          "request": {
+            "name": "Prebook a rate",
+            "description": {},
+            "url": {
+              "path": [
+                "rates",
+                "prebook"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offerId\": \"<string>\",\n  \"usePaymentSdk\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "1c4e3ac0-c961-44f2-915d-b102cc4b19bf",
+          "name": "Confirm a booking",
+          "request": {
+            "name": "Confirm a booking",
+            "description": {},
+            "url": {
+              "path": [
+                "rates",
+                "book"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prebookId\": \"<string>\",\n  \"holder\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"guests\": [\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "88c880da-6546-4e13-96cf-4daeb22cd520",
+          "name": "List bookings",
+          "request": {
+            "name": "List bookings",
+            "description": {},
+            "url": {
+              "path": [
+                "bookings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "712df252-12d6-4b38-984c-5e0e6687268b",
+          "name": "Retrieve a booking",
+          "request": {
+            "name": "Retrieve a booking",
+            "description": {},
+            "url": {
+              "path": [
+                "bookings",
+                "{bookingId}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "115d5d05-11b5-45c1-b82e-a3b53158c7d7",
+          "name": "Cancel a booking",
+          "request": {
+            "name": "Cancel a booking",
+            "description": {},
+            "url": {
+              "path": [
+                "bookings",
+                "{bookingId}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "beda2423-a607-489a-add9-62542c1327da",
+      "name": "Loyalty",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6bd95146-ac30-4911-b4e2-fee9fc8d5324",
+          "name": "Get loyalty settings",
+          "request": {
+            "name": "Get loyalty settings",
+            "description": {},
+            "url": {
+              "path": [
+                "loyalties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "4eb9e9b9-3203-4c83-8ad9-3511dce29439",
+          "name": "Update loyalty settings",
+          "request": {
+            "name": "Update loyalty settings",
+            "description": {},
+            "url": {
+              "path": [
+                "loyalties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"enabled\",\n  \"cashbackRate\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "0cbc3bc7-cf48-48db-9b97-37b6ad9d44cf",
+          "name": "Get guest bookings",
+          "request": {
+            "name": "Get guest bookings",
+            "description": {},
+            "url": {
+              "path": [
+                "guests",
+                "{guestId}",
+                "bookings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "fb45334c-45d4-4e81-a684-2dd1a9820e7a",
+          "name": "List vouchers",
+          "request": {
+            "name": "List vouchers",
+            "description": {},
+            "url": {
+              "path": [
+                "vouchers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "e11c8f28-4515-464f-9df2-df4b99254db1",
+          "name": "Create a voucher",
+          "request": {
+            "name": "Create a voucher",
+            "description": {},
+            "url": {
+              "path": [
+                "vouchers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"voucherCode\": \"<string>\",\n  \"discountType\": \"percentage\",\n  \"discountValue\": 10,\n  \"currency\": \"USD\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "4bbbb7c8-c29e-43ef-8381-941f7c5fa0b3",
+          "name": "Retrieve a voucher",
+          "request": {
+            "name": "Retrieve a voucher",
+            "description": {},
+            "url": {
+              "path": [
+                "vouchers",
+                "{voucherId}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "e792aea5-10ad-4f74-965c-3e9fc03a2dd9",
+          "name": "Delete a voucher",
+          "request": {
+            "name": "Delete a voucher",
+            "description": {},
+            "url": {
+              "path": [
+                "vouchers",
+                "{voucherId}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.liteapi.travel/v3.0",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "",
+      "key": "apiKey"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9bceacb4-b79b-40b5-b34e-478f199cc297",
+    "name": "LiteAPI (Nuit\u00e9e) Hotel Booking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LiteAPI by Nuit\u00e9e hotel-booking and distribution API. Authenticated with the X-API-Key header. Base URL https://api.liteapi.travel/v3.0.",
+      "type": "text/plain"
+    }
+  }
+}

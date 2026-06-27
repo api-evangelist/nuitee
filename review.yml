@@ -1,0 +1,82 @@
+aid: nuitee
+name: Nuitée (LiteAPI)
+review:
+  question: Does Nuitée (LiteAPI) expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-25'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    LiteAPI's realtime surfaces are HTTP-based, not WebSocket. The hotel
+    booking flow (data, rates, prebook, book, cancel) is plain REST over
+    HTTPS. The flight-rates streaming endpoint is delivered as HTTP
+    Server-Sent Events (SSE), and booking lifecycle changes are delivered
+    via HTTP webhooks (server-to-server callbacks). No AsyncAPI document was
+    authored at this time; the SSE flight stream and webhook callbacks could
+    be modeled in a future pass under the SSE-in-scope guidance.
+findings:
+  summary: |
+    Nuitée's LiteAPI does not publish a documented public WebSocket API. All
+    documented endpoints are HTTPS REST under https://api.liteapi.travel/v3.0,
+    authenticated with an X-API-Key header. Realtime behavior is delivered
+    over HTTP rather than WebSocket: a flight-rates streaming endpoint uses
+    Server-Sent Events (SSE), and booking events are pushed to subscriber
+    HTTPS callback URLs via webhooks. No bidirectional WebSocket (ws:// or
+    wss://) endpoint is documented for hotel search, booking, or any other
+    product surface.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.liteapi.travel/v3.0
+      documented: true
+    - protocol: SSE
+      scheme: https
+      note: Flight-rates streaming endpoint (POST /flights/rates/stream) delivers Server-Sent Events over HTTPS. Not WebSocket.
+      documented: true
+    - protocol: Webhooks
+      scheme: https
+      note: Booking lifecycle events are pushed to a subscriber HTTPS callback URL. Server-to-server, not WebSocket.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in LiteAPI's API reference or product pages as of the review date.
+  endpointsConfirmedRest:
+    - GET  https://api.liteapi.travel/v3.0/data/hotels
+    - GET  https://api.liteapi.travel/v3.0/data/hotel
+    - GET  https://api.liteapi.travel/v3.0/data/reviews
+    - GET  https://api.liteapi.travel/v3.0/data/countries
+    - GET  https://api.liteapi.travel/v3.0/data/cities
+    - GET  https://api.liteapi.travel/v3.0/data/currencies
+    - GET  https://api.liteapi.travel/v3.0/data/iatacodes
+    - POST https://api.liteapi.travel/v3.0/hotels/rates
+    - POST https://api.liteapi.travel/v3.0/rates/prebook
+    - POST https://api.liteapi.travel/v3.0/rates/book
+    - GET  https://api.liteapi.travel/v3.0/bookings
+    - GET  https://api.liteapi.travel/v3.0/bookings/{bookingId}
+    - PUT  https://api.liteapi.travel/v3.0/bookings/{bookingId}
+    - GET  https://api.liteapi.travel/v3.0/loyalties
+    - PUT  https://api.liteapi.travel/v3.0/loyalties
+    - GET  https://api.liteapi.travel/v3.0/guests/{guestId}/bookings
+    - GET  https://api.liteapi.travel/v3.0/vouchers
+    - POST https://api.liteapi.travel/v3.0/vouchers
+    - GET  https://api.liteapi.travel/v3.0/vouchers/{voucherId}
+    - DELETE https://api.liteapi.travel/v3.0/vouchers/{voucherId}
+sources:
+  - url: https://docs.liteapi.travel/reference/api-endpoints-overview
+    type: APIReference
+    note: Lists REST endpoints across Hotel Data, Search, Booking, and Loyalty; no WebSocket mentioned.
+  - url: https://docs.liteapi.travel/reference/post_hotels-rates
+    type: APIReference
+    note: POST /hotels/rates is an HTTPS REST endpoint authenticated with X-API-Key.
+  - url: https://docs.liteapi.travel/docs/webhooks
+    type: Documentation
+    note: Booking events delivered via HTTP webhooks to a subscriber callback URL, not WebSocket.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. The platform's realtime surfaces
+    are HTTP SSE (flight rates) and HTTP webhooks (booking events); both are
+    documented in apis.yml/properties. No AsyncAPI document was authored in
+    this pass.

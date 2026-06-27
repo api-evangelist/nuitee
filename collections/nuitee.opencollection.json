@@ -1,0 +1,291 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LiteAPI (Nuit\u00e9e) Hotel Booking API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "apikey": {
+        "key": "X-API-Key",
+        "value": "{{apiKey}}",
+        "in": "header"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Hotel Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List hotels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/data/hotels"
+          },
+          "docs": "List hotels"
+        },
+        {
+          "info": {
+            "name": "Get hotel details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/data/hotel"
+          },
+          "docs": "Get hotel details"
+        },
+        {
+          "info": {
+            "name": "Get hotel reviews",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/data/reviews"
+          },
+          "docs": "Get hotel reviews"
+        },
+        {
+          "info": {
+            "name": "List countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/data/countries"
+          },
+          "docs": "List countries"
+        },
+        {
+          "info": {
+            "name": "List cities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/data/cities"
+          },
+          "docs": "List cities"
+        },
+        {
+          "info": {
+            "name": "List currencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/data/currencies"
+          },
+          "docs": "List currencies"
+        },
+        {
+          "info": {
+            "name": "List IATA codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/data/iatacodes"
+          },
+          "docs": "List IATA codes"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Rates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search hotel rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.liteapi.travel/v3.0/hotels/rates",
+            "body": {
+              "type": "json",
+              "data": "{\"hotelIds\": [\"<string>\"], \"checkin\": \"<date>\", \"checkout\": \"<date>\", \"occupancies\": [{\"adults\": 2, \"children\": []}], \"currency\": \"USD\", \"guestNationality\": \"US\", \"margin\": 15}"
+            }
+          },
+          "docs": "Search hotel rates"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Booking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Prebook a rate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.liteapi.travel/v3.0/rates/prebook",
+            "body": {
+              "type": "json",
+              "data": "{\"offerId\": \"<string>\", \"usePaymentSdk\": false}"
+            }
+          },
+          "docs": "Prebook a rate"
+        },
+        {
+          "info": {
+            "name": "Confirm a booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.liteapi.travel/v3.0/rates/book",
+            "body": {
+              "type": "json",
+              "data": "{\"prebookId\": \"<string>\", \"holder\": {\"firstName\": \"<string>\", \"lastName\": \"<string>\", \"email\": \"<string>\"}, \"guests\": [{\"firstName\": \"<string>\", \"lastName\": \"<string>\"}]}"
+            }
+          },
+          "docs": "Confirm a booking"
+        },
+        {
+          "info": {
+            "name": "List bookings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/bookings"
+          },
+          "docs": "List bookings"
+        },
+        {
+          "info": {
+            "name": "Retrieve a booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/bookings/{bookingId}"
+          },
+          "docs": "Retrieve a booking"
+        },
+        {
+          "info": {
+            "name": "Cancel a booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.liteapi.travel/v3.0/bookings/{bookingId}"
+          },
+          "docs": "Cancel a booking"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Loyalty",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get loyalty settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/loyalties"
+          },
+          "docs": "Get loyalty settings"
+        },
+        {
+          "info": {
+            "name": "Update loyalty settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.liteapi.travel/v3.0/loyalties",
+            "body": {
+              "type": "json",
+              "data": "{\"status\": \"enabled\", \"cashbackRate\": 5}"
+            }
+          },
+          "docs": "Update loyalty settings"
+        },
+        {
+          "info": {
+            "name": "Get guest bookings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/guests/{guestId}/bookings"
+          },
+          "docs": "Get guest bookings"
+        },
+        {
+          "info": {
+            "name": "List vouchers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/vouchers"
+          },
+          "docs": "List vouchers"
+        },
+        {
+          "info": {
+            "name": "Create a voucher",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.liteapi.travel/v3.0/vouchers",
+            "body": {
+              "type": "json",
+              "data": "{\"voucherCode\": \"<string>\", \"discountType\": \"percentage\", \"discountValue\": 10, \"currency\": \"USD\"}"
+            }
+          },
+          "docs": "Create a voucher"
+        },
+        {
+          "info": {
+            "name": "Retrieve a voucher",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/vouchers/{voucherId}"
+          },
+          "docs": "Retrieve a voucher"
+        },
+        {
+          "info": {
+            "name": "Delete a voucher",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.liteapi.travel/v3.0/vouchers/{voucherId}"
+          },
+          "docs": "Delete a voucher"
+        }
+      ]
+    }
+  ]
+}

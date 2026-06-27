@@ -1,0 +1,113 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Nuitée (LiteAPI)
+providerId: nuitee
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Travel
+- Hotels
+- Booking
+- Distribution
+- Hospitality
+- Plans
+description: >-
+  LiteAPI does not charge per-API-call subscription fees. Access starts with a
+  free sandbox API key for testing, and live access uses a commission/markup
+  revenue model: sellers set a margin (percentage markup) on net rates and earn
+  that margin as commission on each completed booking. A margin of 0 returns
+  net rates; any positive margin produces a commissionable rate. Commissions on
+  confirmed bookings (guest has checked out) are paid out weekly, with no
+  booking fees. Enterprise plans add volume terms and white-label options.
+notes: >-
+  Exact commission terms, payout schedule, and any enterprise minimums should
+  be verified with LiteAPI / Nuitée during reconciliation; pricing here reflects
+  the publicly documented commission/markup model rather than fixed list prices.
+sources:
+- https://www.liteapi.travel
+- https://docs.liteapi.travel/docs/revenue-management-and-commission
+- https://nuitee.com/connect/liteapi-build
+- https://www.nuitee.com/blog/effortlessly-test-travel-api-integrations-with-liteapis-sandbox-key
+plans:
+- id: nuitee-sandbox
+  name: Sandbox
+  type: free
+  description: >-
+    Free sandbox API key to test integrations and simulate bookings in a
+    risk-free environment without affecting real data or incurring costs.
+  entries:
+  - label: Sandbox Access
+    name: sandbox
+    type: free
+    metric: requests
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free
+    userMultiplied: false
+  elements:
+  - name: Hotel Data
+  - name: Rates Search
+  - name: Prebook / Book (test)
+  - name: Loyalty / Vouchers
+- id: nuitee-commission
+  name: Commission / Markup
+  type: usage
+  description: >-
+    Live distribution where the seller sets a margin on net rates and earns
+    that margin as commission on each completed booking. No per-call or
+    booking fees; commissions paid weekly after guest checkout.
+  entries:
+  - label: Margin / Markup Commission
+    name: margin_commission
+    type: usage
+    metric: bookings
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: seller-set margin (% markup on net rate), earned as commission
+    userMultiplied: false
+  - label: Net Rates (margin = 0)
+    name: net_rates
+    type: usage
+    metric: bookings
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: net rate, no added margin
+    userMultiplied: false
+  elements:
+  - name: Hotel Data
+  - name: Rates Search
+  - name: Booking (Prebook / Book / Cancel)
+  - name: Loyalty / Vouchers
+  - name: Webhooks
+- id: nuitee-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Volume distribution agreements, white-label booking sites, scaled
+    inventory, and dedicated support. Contact Nuitée / LiteAPI sales.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Volume Distribution
+  - name: White-Label Booking Site
+  - name: Dedicated Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

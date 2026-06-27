@@ -1,0 +1,53 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Nuitée (LiteAPI)
+providerId: nuitee
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Travel
+- Hotels
+- Booking
+- Distribution
+- Hospitality
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  LiteAPI applies per-account rate limiting to protect the platform, with
+  sandbox keys subject to tighter limits than live keys. Specific
+  requests-per-second/minute thresholds are not published in the public
+  documentation and are not reconciled in this artifact; the rates search
+  endpoint also exposes a request-level timeout (commonly 6-12 seconds) to
+  bound long-running availability searches.
+notes: >-
+  Confirm exact per-account and per-endpoint rate limits, sandbox vs. live
+  differences, and retry guidance directly with LiteAPI / Nuitée during
+  reconciliation.
+sources:
+- https://docs.liteapi.travel/reference/api-endpoints-overview
+- https://docs.liteapi.travel/reference/post_hotels-rates
+- https://docs.liteapi.travel/docs/faq
+responseCodes:
+  throttled: 429
+limits:
+- name: Per-Account Request Rate
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: Per-account throttling; sandbox keys are more tightly limited than live keys.
+- name: Rates Search Timeout
+  scope: request
+  metric: seconds
+  limit: configurable (commonly 6-12s)
+  notes: The timeout field on POST /hotels/rates bounds availability search duration.
+policies:
+- name: Sandbox vs. Live
+  description: Sandbox API keys carry lower limits and simulated data; live keys raise limits for production traffic.
+- name: Backoff Strategy
+  description: Clients should implement retries with exponential backoff and honor 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,98 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Nuitée (LiteAPI)
+providerId: nuitee
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Travel
+- Hotels
+- Booking
+- Distribution
+- Hospitality
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of LiteAPI (Nuitée). Unlike usage-metered API platforms, LiteAPI
+  does not bill per API call; instead it operates a commission/markup
+  distribution model. Sellers receive net rates and add a margin they keep as
+  commission on each completed booking, with commissions paid weekly after
+  guest checkout. The "spend" managed here is the cost of hotel inventory
+  (net rates) and the margin/commission economics layered on top, rather than
+  metered API consumption.
+notes: >-
+  Commission terms, payout cadence, and any enterprise minimums are
+  subject to agreement with Nuitée and should be verified during
+  reconciliation.
+sources:
+- https://docs.liteapi.travel/docs/revenue-management-and-commission
+- https://www.liteapi.travel
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Nuitée
+serviceCategory: Travel and Hospitality
+billingModel:
+  pricingCategory: Commission-Based
+  billingFrequency: Weekly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Adjustment
+focusColumns:
+  ServiceName: LiteAPI
+  ServiceCategory: Travel and Hospitality
+  ProviderName: Nuitée
+  PublisherName: Nuitée
+  InvoiceIssuerName: Nuitée
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Commission-Based
+meters:
+- name: net_rate_cost
+  description: Net hotel rate paid to the supplier per confirmed booking.
+  unit: bookings
+  aggregation: sum
+  dimensions:
+  - account
+  - hotel
+- name: margin_commission
+  description: Seller margin (markup) earned as commission per completed booking.
+  unit: bookings
+  aggregation: sum
+  dimensions:
+  - account
+  - hotel
+- name: loyalty_cashback
+  description: Cashback or loyalty points granted to guests against bookings.
+  unit: bookings
+  aggregation: sum
+  dimensions:
+  - account
+  - guest
+- name: voucher_discounts
+  description: Discount value applied through redeemed vouchers.
+  unit: vouchers
+  aggregation: sum
+  dimensions:
+  - account
+  - voucher
+principles:
+- name: Visibility
+  description: Use the analytics and commission reporting endpoints to track bookings, net cost, and earned commission.
+- name: Allocation
+  description: Tag API keys and client references per brand/channel; map bookings to internal cost centers.
+- name: Optimization
+  description: Tune margin/markup per search to balance conversion against earned commission; model net vs. commissionable pricing.
+- name: Accountability
+  description: Reconcile weekly commission payouts against confirmed (checked-out) bookings; assign owners per channel.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
