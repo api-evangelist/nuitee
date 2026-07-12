@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/nuitee-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: X-API-Key
+  description: LiteAPI key passed in the X-API-Key request header. A free sandbox key is available;
+    live keys are issued from the LiteAPI dashboard.
+  sources:
+  - openapi/nuitee-openapi.yml

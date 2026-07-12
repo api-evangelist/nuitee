@@ -131,6 +131,10 @@ apis:
   description: Event notifications that push booking lifecycle changes (such as new
     and cancelled reservations) to a subscriber-configured HTTPS callback URL.
 common:
+- type: DomainSecurity
+  url: security/nuitee-domain-security.yml
+- type: Authentication
+  url: authentication/nuitee-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/liteapi-travel
 - type: LinkedIn
