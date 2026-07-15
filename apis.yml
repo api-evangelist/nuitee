@@ -131,6 +131,8 @@ apis:
   description: Event notifications that push booking lifecycle changes (such as new
     and cancelled reservations) to a subscriber-configured HTTPS callback URL.
 common:
+- type: AgenticAccess
+  url: agentic-access/nuitee-agentic-access.yml
 - type: DomainSecurity
   url: security/nuitee-domain-security.yml
 - type: Authentication
