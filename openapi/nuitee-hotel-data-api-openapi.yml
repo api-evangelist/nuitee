@@ -1,0 +1,189 @@
+openapi: 3.0.1
+info:
+  title: LiteAPI (Nuitée) Hotel Booking Hotel Data API
+  description: LiteAPI by Nuitée is a unified hotel-booking and distribution API. It provides static hotel content and reference data, real-time rates and availability, the prebook/book/retrieve/cancel reservation flow, and loyalty and voucher management over 2M+ properties. All requests are authenticated with an X-API-Key header; a free sandbox key is available.
+  termsOfService: https://www.liteapi.travel/terms
+  contact:
+    name: LiteAPI Support
+    url: https://docs.liteapi.travel
+  version: '3.0'
+servers:
+- url: https://api.liteapi.travel/v3.0
+  description: LiteAPI v3.0 production and sandbox base URL (key selects environment)
+security:
+- ApiKeyAuth: []
+tags:
+- name: Hotel Data
+  description: Static hotel content, reviews, and reference data.
+paths:
+  /data/hotels:
+    get:
+      operationId: getHotels
+      tags:
+      - Hotel Data
+      summary: List hotels
+      description: Retrieve a list of hotels filtered by country, city, coordinates, or place.
+      parameters:
+      - name: countryCode
+        in: query
+        schema:
+          type: string
+        description: ISO-2 country code.
+      - name: cityName
+        in: query
+        schema:
+          type: string
+      - name: offset
+        in: query
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of hotels.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HotelListResponse'
+  /data/hotel:
+    get:
+      operationId: getHotelDetails
+      tags:
+      - Hotel Data
+      summary: Get hotel details
+      description: Retrieve comprehensive details about a specific hotel.
+      parameters:
+      - name: hotelId
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Hotel detail object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HotelDetailResponse'
+  /data/reviews:
+    get:
+      operationId: getHotelReviews
+      tags:
+      - Hotel Data
+      summary: Get hotel reviews
+      description: Fetch guest reviews for a specific hotel.
+      parameters:
+      - name: hotelId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of reviews.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewsResponse'
+  /data/countries:
+    get:
+      operationId: getCountries
+      tags:
+      - Hotel Data
+      summary: List countries
+      responses:
+        '200':
+          description: A list of countries with ISO-2 codes.
+  /data/cities:
+    get:
+      operationId: getCities
+      tags:
+      - Hotel Data
+      summary: List cities
+      parameters:
+      - name: countryCode
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of cities for the given country.
+  /data/currencies:
+    get:
+      operationId: getCurrencies
+      tags:
+      - Hotel Data
+      summary: List currencies
+      responses:
+        '200':
+          description: A list of supported currencies.
+  /data/iatacodes:
+    get:
+      operationId: getIataCodes
+      tags:
+      - Hotel Data
+      summary: List IATA codes
+      responses:
+        '200':
+          description: A list of IATA airport and city codes.
+components:
+  schemas:
+    HotelListResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hotel'
+    Hotel:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        country:
+          type: string
+        city:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        starRating:
+          type: number
+    ReviewsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              rating:
+                type: number
+              text:
+                type: string
+              date:
+                type: string
+    HotelDetailResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Hotel'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: LiteAPI key passed in the X-API-Key request header. A free sandbox key is available; live keys are issued from the LiteAPI dashboard.

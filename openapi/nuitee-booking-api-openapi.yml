@@ -1,0 +1,193 @@
+openapi: 3.0.1
+info:
+  title: LiteAPI (Nuitée) Hotel Booking API
+  description: LiteAPI by Nuitée is a unified hotel-booking and distribution API. It provides static hotel content and reference data, real-time rates and availability, the prebook/book/retrieve/cancel reservation flow, and loyalty and voucher management over 2M+ properties. All requests are authenticated with an X-API-Key header; a free sandbox key is available.
+  termsOfService: https://www.liteapi.travel/terms
+  contact:
+    name: LiteAPI Support
+    url: https://docs.liteapi.travel
+  version: '3.0'
+servers:
+- url: https://api.liteapi.travel/v3.0
+  description: LiteAPI v3.0 production and sandbox base URL (key selects environment)
+security:
+- ApiKeyAuth: []
+tags:
+- name: Booking
+  description: Prebook, book, retrieve, list, and cancel reservations.
+paths:
+  /rates/prebook:
+    post:
+      operationId: prebook
+      tags:
+      - Booking
+      summary: Prebook a rate
+      description: Initiate a prebooking session for a selected rate to lock the price and obtain a prebookId used to complete the booking.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrebookRequest'
+      responses:
+        '200':
+          description: Prebook session created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrebookResponse'
+  /rates/book:
+    post:
+      operationId: book
+      tags:
+      - Booking
+      summary: Confirm a booking
+      description: Confirm a booking using a prebookId, guest details, and payment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookRequest'
+      responses:
+        '200':
+          description: Booking confirmation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookingResponse'
+  /bookings:
+    get:
+      operationId: listBookings
+      tags:
+      - Booking
+      summary: List bookings
+      description: Retrieve a list of all bookings, optionally filtered by date.
+      responses:
+        '200':
+          description: A list of bookings.
+  /bookings/{bookingId}:
+    get:
+      operationId: getBooking
+      tags:
+      - Booking
+      summary: Retrieve a booking
+      description: Get complete details for a specific booking.
+      parameters:
+      - name: bookingId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Booking detail.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookingResponse'
+    put:
+      operationId: cancelBooking
+      tags:
+      - Booking
+      summary: Cancel a booking
+      description: Cancel an existing booking by its identifier.
+      parameters:
+      - name: bookingId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Cancellation confirmation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookingResponse'
+components:
+  schemas:
+    BookRequest:
+      type: object
+      required:
+      - prebookId
+      - holder
+      - guests
+      properties:
+        prebookId:
+          type: string
+        holder:
+          type: object
+          properties:
+            firstName:
+              type: string
+            lastName:
+              type: string
+            email:
+              type: string
+        guests:
+          type: array
+          items:
+            type: object
+            properties:
+              firstName:
+                type: string
+              lastName:
+                type: string
+        payment:
+          type: object
+          properties:
+            method:
+              type: string
+    BookingResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            bookingId:
+              type: string
+            status:
+              type: string
+            hotelConfirmationCode:
+              type: string
+            checkin:
+              type: string
+              format: date
+            checkout:
+              type: string
+              format: date
+            price:
+              type: number
+            currency:
+              type: string
+    PrebookRequest:
+      type: object
+      required:
+      - offerId
+      properties:
+        offerId:
+          type: string
+          description: The rate offer identifier returned by /hotels/rates.
+        usePaymentSdk:
+          type: boolean
+    PrebookResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            prebookId:
+              type: string
+            transactionId:
+              type: string
+            price:
+              type: number
+            currency:
+              type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: LiteAPI key passed in the X-API-Key request header. A free sandbox key is available; live keys are issued from the LiteAPI dashboard.

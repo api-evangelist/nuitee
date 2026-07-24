@@ -1,0 +1,147 @@
+openapi: 3.0.1
+info:
+  title: LiteAPI (Nuitée) Hotel Booking Loyalty API
+  description: LiteAPI by Nuitée is a unified hotel-booking and distribution API. It provides static hotel content and reference data, real-time rates and availability, the prebook/book/retrieve/cancel reservation flow, and loyalty and voucher management over 2M+ properties. All requests are authenticated with an X-API-Key header; a free sandbox key is available.
+  termsOfService: https://www.liteapi.travel/terms
+  contact:
+    name: LiteAPI Support
+    url: https://docs.liteapi.travel
+  version: '3.0'
+servers:
+- url: https://api.liteapi.travel/v3.0
+  description: LiteAPI v3.0 production and sandbox base URL (key selects environment)
+security:
+- ApiKeyAuth: []
+tags:
+- name: Loyalty
+  description: Loyalty program configuration, points, and vouchers.
+paths:
+  /loyalties:
+    get:
+      operationId: getLoyalty
+      tags:
+      - Loyalty
+      summary: Get loyalty settings
+      description: Retrieve current loyalty program settings and cashback rates.
+      responses:
+        '200':
+          description: Loyalty program settings.
+    put:
+      operationId: updateLoyalty
+      tags:
+      - Loyalty
+      summary: Update loyalty settings
+      description: Update loyalty program status and cashback rates.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoyaltyRequest'
+      responses:
+        '200':
+          description: Updated loyalty settings.
+  /guests/{guestId}/bookings:
+    get:
+      operationId: getGuestBookings
+      tags:
+      - Loyalty
+      summary: Get guest bookings
+      description: Retrieve a list of bookings for a specific guest, including points earned and cashback applied.
+      parameters:
+      - name: guestId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Guest booking history with loyalty details.
+  /vouchers:
+    get:
+      operationId: listVouchers
+      tags:
+      - Loyalty
+      summary: List vouchers
+      responses:
+        '200':
+          description: A paginated list of vouchers.
+    post:
+      operationId: createVoucher
+      tags:
+      - Loyalty
+      summary: Create a voucher
+      description: Create a discount voucher.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VoucherRequest'
+      responses:
+        '200':
+          description: Created voucher.
+  /vouchers/{voucherId}:
+    get:
+      operationId: getVoucher
+      tags:
+      - Loyalty
+      summary: Retrieve a voucher
+      parameters:
+      - name: voucherId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Voucher detail.
+    delete:
+      operationId: deleteVoucher
+      tags:
+      - Loyalty
+      summary: Delete a voucher
+      parameters:
+      - name: voucherId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Deletion confirmation.
+components:
+  schemas:
+    LoyaltyRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - enabled
+          - disabled
+        cashbackRate:
+          type: number
+    VoucherRequest:
+      type: object
+      properties:
+        voucherCode:
+          type: string
+        discountType:
+          type: string
+        discountValue:
+          type: number
+        currency:
+          type: string
+        validityStart:
+          type: string
+          format: date
+        validityEnd:
+          type: string
+          format: date
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: LiteAPI key passed in the X-API-Key request header. A free sandbox key is available; live keys are issued from the LiteAPI dashboard.

@@ -1,0 +1,109 @@
+openapi: 3.0.1
+info:
+  title: LiteAPI (Nuitée) Hotel Booking Rates API
+  description: LiteAPI by Nuitée is a unified hotel-booking and distribution API. It provides static hotel content and reference data, real-time rates and availability, the prebook/book/retrieve/cancel reservation flow, and loyalty and voucher management over 2M+ properties. All requests are authenticated with an X-API-Key header; a free sandbox key is available.
+  termsOfService: https://www.liteapi.travel/terms
+  contact:
+    name: LiteAPI Support
+    url: https://docs.liteapi.travel
+  version: '3.0'
+servers:
+- url: https://api.liteapi.travel/v3.0
+  description: LiteAPI v3.0 production and sandbox base URL (key selects environment)
+security:
+- ApiKeyAuth: []
+tags:
+- name: Rates
+  description: Real-time room rates and availability search.
+paths:
+  /hotels/rates:
+    post:
+      operationId: searchRates
+      tags:
+      - Rates
+      summary: Search hotel rates
+      description: Search for real-time room rates and availability across multiple hotels by hotel IDs, city, coordinates, place, or IATA code.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RatesSearchRequest'
+      responses:
+        '200':
+          description: Rates and availability results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RatesSearchResponse'
+components:
+  schemas:
+    RatesSearchResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              hotelId:
+                type: string
+              roomTypes:
+                type: array
+                items:
+                  type: object
+    RatesSearchRequest:
+      type: object
+      required:
+      - checkin
+      - checkout
+      - occupancies
+      properties:
+        hotelIds:
+          type: array
+          items:
+            type: string
+        cityName:
+          type: string
+        countryCode:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        iataCode:
+          type: string
+        placeId:
+          type: string
+        checkin:
+          type: string
+          format: date
+        checkout:
+          type: string
+          format: date
+        occupancies:
+          type: array
+          items:
+            type: object
+            properties:
+              adults:
+                type: integer
+              children:
+                type: array
+                items:
+                  type: integer
+        currency:
+          type: string
+        guestNationality:
+          type: string
+        margin:
+          type: number
+          description: Percentage commission margin added to the net rate.
+        refundableRatesOnly:
+          type: boolean
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: LiteAPI key passed in the X-API-Key request header. A free sandbox key is available; live keys are issued from the LiteAPI dashboard.
