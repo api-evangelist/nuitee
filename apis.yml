@@ -7,7 +7,20 @@ description: Nuitée is the travel technology company behind LiteAPI, a hotel-bo
   hotels for static content, real-time rates and availability, the prebook/book/cancel
   reservation flow, loyalty and vouchers, and booking webhooks, with a commission/markup
   revenue model and a free sandbox.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nuitee.png
 tags:
 - Travel
 - Hotels
@@ -18,118 +31,110 @@ created: '2026-06-25'
 modified: '2026-06-25'
 specificationVersion: '0.19'
 apis:
-- aid: nuitee:hotel-data
-  name: LiteAPI Hotel Data API
-  tags:
-  - Hotels
-  - Static Content
-  - Reviews
-  - Search
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: nuitee:nuitee-booking-api
+  name: Nuitée (LiteAPI) Booking API
+  description: Prebook, book, retrieve, list, and cancel reservations.
   humanURL: https://docs.liteapi.travel/reference/api-endpoints-overview
   baseURL: https://api.liteapi.travel/v3.0
-  properties:
-  - url: https://docs.liteapi.travel/reference/get_data-hotels
-    type: Documentation
-  - url: https://docs.liteapi.travel/reference/api-endpoints-overview
-    type: APIReference
-  - url: openapi/nuitee-openapi.yml
-    type: OpenAPI
-  - url: collections/nuitee.postman_collection.json
-    type: PostmanCollection
-  - url: collections/nuitee.opencollection.json
-    type: OpenCollection
-  description: Static hotel content and supporting reference data - hotel lists and
-    details, guest reviews, plus countries, cities, currencies, facilities, chains,
-    hotel types, places, and IATA codes.
-- aid: nuitee:rates-search
-  name: LiteAPI Rates Search API
-  tags:
-  - Rates
-  - Availability
-  - Search
-  - Pricing
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.liteapi.travel/reference/post_hotels-rates
-  baseURL: https://api.liteapi.travel/v3.0
-  properties:
-  - url: https://docs.liteapi.travel/reference/post_hotels-rates
-    type: Documentation
-  - url: https://docs.liteapi.travel/reference/api-endpoints-overview
-    type: APIReference
-  - url: openapi/nuitee-openapi.yml
-    type: OpenAPI
-  - url: collections/nuitee.postman_collection.json
-    type: PostmanCollection
-  - url: collections/nuitee.opencollection.json
-    type: OpenCollection
-  description: Real-time room rates and availability across multiple hotels by hotel
-    IDs, city, coordinates, place, or IATA code, with occupancy, currency, board type,
-    refundability, and margin/markup commission controls.
-- aid: nuitee:booking
-  name: LiteAPI Booking API
   tags:
   - Booking
-  - Prebook
-  - Reservations
-  - Cancellation
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.liteapi.travel/reference/post_rates-prebook
-  baseURL: https://api.liteapi.travel/v3.0
   properties:
-  - url: https://docs.liteapi.travel/reference/post_rates-prebook
-    type: Documentation
-  - url: https://docs.liteapi.travel/reference/api-endpoints-overview
-    type: APIReference
-  - url: openapi/nuitee-openapi.yml
-    type: OpenAPI
-  - url: collections/nuitee.postman_collection.json
-    type: PostmanCollection
-  - url: collections/nuitee.opencollection.json
-    type: OpenCollection
-  description: The reservation lifecycle - prebook a selected rate to lock price and
-    obtain a prebookId, confirm the booking with guest and payment details, retrieve
-    booking details, list bookings, and cancel a booking.
-- aid: nuitee:loyalty-vouchers
-  name: LiteAPI Loyalty and Vouchers API
+  - type: OpenAPI
+    url: openapi/nuitee-booking-api-openapi.yml
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/get_data-hotels
+  - type: APIReference
+    url: https://docs.liteapi.travel/reference/api-endpoints-overview
+  - type: PostmanCollection
+    url: collections/nuitee.postman_collection.json
+  - type: OpenCollection
+    url: collections/nuitee.opencollection.json
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/post_hotels-rates
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/post_rates-prebook
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/get_loyalties
+  - type: Documentation
+    url: https://docs.liteapi.travel/docs/webhooks
+- aid: nuitee:nuitee-hotel-data-api
+  name: Nuitée (LiteAPI) Hotel Data API
+  description: Static hotel content, reviews, and reference data.
+  humanURL: https://docs.liteapi.travel/reference/api-endpoints-overview
+  baseURL: https://api.liteapi.travel/v3.0
+  tags:
+  - Hotel Data
+  properties:
+  - type: OpenAPI
+    url: openapi/nuitee-hotel-data-api-openapi.yml
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/get_data-hotels
+  - type: APIReference
+    url: https://docs.liteapi.travel/reference/api-endpoints-overview
+  - type: PostmanCollection
+    url: collections/nuitee.postman_collection.json
+  - type: OpenCollection
+    url: collections/nuitee.opencollection.json
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/post_hotels-rates
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/post_rates-prebook
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/get_loyalties
+  - type: Documentation
+    url: https://docs.liteapi.travel/docs/webhooks
+- aid: nuitee:nuitee-loyalty-api
+  name: Nuitée (LiteAPI) Loyalty API
+  description: Loyalty program configuration, points, and vouchers.
+  humanURL: https://docs.liteapi.travel/reference/api-endpoints-overview
+  baseURL: https://api.liteapi.travel/v3.0
   tags:
   - Loyalty
-  - Cashback
-  - Vouchers
-  - Rewards
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.liteapi.travel/reference/get_loyalties
-  baseURL: https://api.liteapi.travel/v3.0
   properties:
-  - url: https://docs.liteapi.travel/reference/get_loyalties
-    type: Documentation
-  - url: https://docs.liteapi.travel/reference/api-endpoints-overview
-    type: APIReference
-  - url: openapi/nuitee-openapi.yml
-    type: OpenAPI
-  - url: collections/nuitee.postman_collection.json
-    type: PostmanCollection
-  - url: collections/nuitee.opencollection.json
-    type: OpenCollection
-  description: Loyalty program configuration with cashback rates, guest loyalty point
-    balances and redemption, and discount voucher creation, listing, updates, status
-    toggling, and deletion.
-- aid: nuitee:webhooks
-  name: LiteAPI Webhooks
+  - type: OpenAPI
+    url: openapi/nuitee-loyalty-api-openapi.yml
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/get_data-hotels
+  - type: APIReference
+    url: https://docs.liteapi.travel/reference/api-endpoints-overview
+  - type: PostmanCollection
+    url: collections/nuitee.postman_collection.json
+  - type: OpenCollection
+    url: collections/nuitee.opencollection.json
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/post_hotels-rates
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/post_rates-prebook
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/get_loyalties
+  - type: Documentation
+    url: https://docs.liteapi.travel/docs/webhooks
+- aid: nuitee:nuitee-rates-api
+  name: Nuitée (LiteAPI) Rates API
+  description: Real-time room rates and availability search.
+  humanURL: https://docs.liteapi.travel/reference/api-endpoints-overview
+  baseURL: https://api.liteapi.travel/v3.0
   tags:
-  - Webhooks
-  - Events
-  - Notifications
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.liteapi.travel/docs/webhooks
-  baseURL: https://api.liteapi.travel/v3.0
+  - Rates
   properties:
-  - url: https://docs.liteapi.travel/docs/webhooks
-    type: Documentation
-  - url: openapi/nuitee-openapi.yml
-    type: OpenAPI
-  description: Event notifications that push booking lifecycle changes (such as new
-    and cancelled reservations) to a subscriber-configured HTTPS callback URL.
+  - type: OpenAPI
+    url: openapi/nuitee-rates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/get_data-hotels
+  - type: APIReference
+    url: https://docs.liteapi.travel/reference/api-endpoints-overview
+  - type: PostmanCollection
+    url: collections/nuitee.postman_collection.json
+  - type: OpenCollection
+    url: collections/nuitee.opencollection.json
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/post_hotels-rates
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/post_rates-prebook
+  - type: Documentation
+    url: https://docs.liteapi.travel/reference/get_loyalties
+  - type: Documentation
+    url: https://docs.liteapi.travel/docs/webhooks
 common:
 - type: AgenticAccess
   url: agentic-access/nuitee-agentic-access.yml
