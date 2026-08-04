@@ -1,0 +1,20 @@
+{
+  "provider": "nuitee",
+  "sources": [
+    "nuitee-booking-api-openapi.yml",
+    "nuitee-hotel-data-api-openapi.yml",
+    "nuitee-loyalty-api-openapi.yml",
+    "nuitee-rates-api-openapi.yml"
+  ],
+  "outputs": [
+    "nuitee-booking-api-openapi.yml",
+    "nuitee-hotel-data-api-openapi.yml",
+    "nuitee-loyalty-api-openapi.yml",
+    "nuitee-rates-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
