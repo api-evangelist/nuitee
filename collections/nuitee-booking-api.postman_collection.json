@@ -1,0 +1,511 @@
+{
+  "item": [
+    {
+      "id": "d7bf33c5-37b1-4f35-a80b-99fbe513ddb4",
+      "name": "Booking",
+      "description": {
+        "content": "Prebook, book, retrieve, list, and cancel reservations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a1571498-e665-466f-bfeb-0c5512032b0a",
+          "name": "Prebook a rate",
+          "request": {
+            "name": "Prebook a rate",
+            "description": {
+              "content": "Initiate a prebooking session for a selected rate to lock the price and obtain a prebookId used to complete the booking.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rates",
+                "prebook"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offerId\": \"<string>\",\n  \"usePaymentSdk\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "42cf27c3-37be-44fe-b4cd-9e54ace5e14c",
+              "name": "Prebook session created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rates",
+                    "prebook"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offerId\": \"<string>\",\n  \"usePaymentSdk\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"prebookId\": \"string\",\n    \"transactionId\": \"string\",\n    \"price\": 5328.630882896517,\n    \"currency\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "895ef129-136b-4795-bd32-dbafcc6582f4",
+          "name": "Confirm a booking",
+          "request": {
+            "name": "Confirm a booking",
+            "description": {
+              "content": "Confirm a booking using a prebookId, guest details, and payment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rates",
+                "book"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prebookId\": \"<string>\",\n  \"holder\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"guests\": [\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    }\n  ],\n  \"payment\": {\n    \"method\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "474e46cc-0e70-4bf5-9b73-405b92d18818",
+              "name": "Booking confirmation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rates",
+                    "book"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prebookId\": \"<string>\",\n  \"holder\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"guests\": [\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    }\n  ],\n  \"payment\": {\n    \"method\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"bookingId\": \"string\",\n    \"status\": \"string\",\n    \"hotelConfirmationCode\": \"string\",\n    \"checkin\": \"2010-10-08\",\n    \"checkout\": \"2006-05-14\",\n    \"price\": 6010.758825616425,\n    \"currency\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc6b67e7-95ae-4aee-9e13-e109ac8456e4",
+          "name": "List bookings",
+          "request": {
+            "name": "List bookings",
+            "description": {
+              "content": "Retrieve a list of all bookings, optionally filtered by date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f4eea1c-b875-44fb-b975-953ce9bc6bda",
+              "name": "A list of bookings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e85b92b-e6e7-4a58-b91f-d4591c88c64e",
+          "name": "Retrieve a booking",
+          "request": {
+            "name": "Retrieve a booking",
+            "description": {
+              "content": "Get complete details for a specific booking.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":bookingId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bookingId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72cbe769-4054-4416-ae40-6e3e41653502",
+              "name": "Booking detail.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":bookingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bookingId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"bookingId\": \"string\",\n    \"status\": \"string\",\n    \"hotelConfirmationCode\": \"string\",\n    \"checkin\": \"2010-10-08\",\n    \"checkout\": \"2006-05-14\",\n    \"price\": 6010.758825616425,\n    \"currency\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9cf75a8a-197b-433b-b81e-06f50271f67d",
+          "name": "Cancel a booking",
+          "request": {
+            "name": "Cancel a booking",
+            "description": {
+              "content": "Cancel an existing booking by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":bookingId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bookingId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20f26bed-bfc2-4bca-ad95-a4bba33a41b9",
+              "name": "Cancellation confirmation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":bookingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bookingId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"bookingId\": \"string\",\n    \"status\": \"string\",\n    \"hotelConfirmationCode\": \"string\",\n    \"checkin\": \"2010-10-08\",\n    \"checkout\": \"2006-05-14\",\n    \"price\": 6010.758825616425,\n    \"currency\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.liteapi.travel/v3.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "95fbe1c7-2214-4000-8fb2-0befbcb1703b",
+    "name": "LiteAPI (Nuitée) Hotel Booking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LiteAPI by Nuitée is a unified hotel-booking and distribution API. It provides static hotel content and reference data, real-time rates and availability, the prebook/book/retrieve/cancel reservation flow, and loyalty and voucher management over 2M+ properties. All requests are authenticated with an X-API-Key header; a free sandbox key is available.\n\nContact Support:\n Name: LiteAPI Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "item": [
+    {
+      "id": "aa2a4630-863b-4e98-8f21-287a0031a27e",
+      "name": "Rates",
+      "description": {
+        "content": "Real-time room rates and availability search.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d93b46d7-de1d-4165-bfaf-c99fee5efef8",
+          "name": "Search hotel rates",
+          "request": {
+            "name": "Search hotel rates",
+            "description": {
+              "content": "Search for real-time room rates and availability across multiple hotels by hotel IDs, city, coordinates, place, or IATA code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hotels",
+                "rates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"occupancies\": [\n    {\n      \"adults\": \"<integer>\",\n      \"children\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    {\n      \"adults\": \"<integer>\",\n      \"children\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  ],\n  \"hotelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cityName\": \"<string>\",\n  \"countryCode\": \"<string>\",\n  \"latitude\": \"<number>\",\n  \"longitude\": \"<number>\",\n  \"iataCode\": \"<string>\",\n  \"placeId\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"guestNationality\": \"<string>\",\n  \"margin\": \"<number>\",\n  \"refundableRatesOnly\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3e52295c-500c-4533-bbef-f01b9648fa46",
+              "name": "Rates and availability results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hotels",
+                    "rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"occupancies\": [\n    {\n      \"adults\": \"<integer>\",\n      \"children\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    {\n      \"adults\": \"<integer>\",\n      \"children\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  ],\n  \"hotelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cityName\": \"<string>\",\n  \"countryCode\": \"<string>\",\n  \"latitude\": \"<number>\",\n  \"longitude\": \"<number>\",\n  \"iataCode\": \"<string>\",\n  \"placeId\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"guestNationality\": \"<string>\",\n  \"margin\": \"<number>\",\n  \"refundableRatesOnly\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"hotelId\": \"string\"\n    },\n    {\n      \"hotelId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.liteapi.travel/v3.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "42180c21-7b68-4549-a4a6-e1f17eee6518",
+    "name": "LiteAPI (Nuitée) Hotel Booking Rates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LiteAPI by Nuitée is a unified hotel-booking and distribution API. It provides static hotel content and reference data, real-time rates and availability, the prebook/book/retrieve/cancel reservation flow, and loyalty and voucher management over 2M+ properties. All requests are authenticated with an X-API-Key header; a free sandbox key is available.\n\nContact Support:\n Name: LiteAPI Support",
+      "type": "text/plain"
+    }
+  }
+}

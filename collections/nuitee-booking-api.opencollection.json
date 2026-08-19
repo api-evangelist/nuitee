@@ -1,0 +1,103 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LiteAPI (Nuitée) Hotel Booking API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Booking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Prebook a rate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.liteapi.travel/v3.0/rates/prebook",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiate a prebooking session for a selected rate to lock the price and obtain a prebookId used to complete the booking."
+        },
+        {
+          "info": {
+            "name": "Confirm a booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.liteapi.travel/v3.0/rates/book",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Confirm a booking using a prebookId, guest details, and payment."
+        },
+        {
+          "info": {
+            "name": "List bookings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/bookings"
+          },
+          "docs": "Retrieve a list of all bookings, optionally filtered by date."
+        },
+        {
+          "info": {
+            "name": "Retrieve a booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/bookings/:bookingId",
+            "params": [
+              {
+                "name": "bookingId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get complete details for a specific booking."
+        },
+        {
+          "info": {
+            "name": "Cancel a booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.liteapi.travel/v3.0/bookings/:bookingId",
+            "params": [
+              {
+                "name": "bookingId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cancel an existing booking by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

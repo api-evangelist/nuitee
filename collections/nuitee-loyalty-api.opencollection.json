@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LiteAPI (Nuitée) Hotel Booking Loyalty API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Loyalty",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get loyalty settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/loyalties"
+          },
+          "docs": "Retrieve current loyalty program settings and cashback rates."
+        },
+        {
+          "info": {
+            "name": "Update loyalty settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.liteapi.travel/v3.0/loyalties",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update loyalty program status and cashback rates."
+        },
+        {
+          "info": {
+            "name": "Get guest bookings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/guests/:guestId/bookings",
+            "params": [
+              {
+                "name": "guestId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of bookings for a specific guest, including points earned and cashback applied."
+        },
+        {
+          "info": {
+            "name": "List vouchers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/vouchers"
+          },
+          "docs": "List vouchers"
+        },
+        {
+          "info": {
+            "name": "Create a voucher",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.liteapi.travel/v3.0/vouchers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a discount voucher."
+        },
+        {
+          "info": {
+            "name": "Retrieve a voucher",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/vouchers/:voucherId",
+            "params": [
+              {
+                "name": "voucherId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a voucher"
+        },
+        {
+          "info": {
+            "name": "Delete a voucher",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.liteapi.travel/v3.0/vouchers/:voucherId",
+            "params": [
+              {
+                "name": "voucherId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a voucher"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

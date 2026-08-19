@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LiteAPI (Nuitée) Hotel Booking Hotel Data API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Hotel Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List hotels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/data/hotels",
+            "params": [
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query",
+                "description": "ISO-2 country code."
+              },
+              {
+                "name": "cityName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of hotels filtered by country, city, coordinates, or place."
+        },
+        {
+          "info": {
+            "name": "Get hotel details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/data/hotel",
+            "params": [
+              {
+                "name": "hotelId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve comprehensive details about a specific hotel."
+        },
+        {
+          "info": {
+            "name": "Get hotel reviews",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/data/reviews",
+            "params": [
+              {
+                "name": "hotelId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetch guest reviews for a specific hotel."
+        },
+        {
+          "info": {
+            "name": "List countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/data/countries"
+          },
+          "docs": "List countries"
+        },
+        {
+          "info": {
+            "name": "List cities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/data/cities",
+            "params": [
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List cities"
+        },
+        {
+          "info": {
+            "name": "List currencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/data/currencies"
+          },
+          "docs": "List currencies"
+        },
+        {
+          "info": {
+            "name": "List IATA codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.liteapi.travel/v3.0/data/iatacodes"
+          },
+          "docs": "List IATA codes"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

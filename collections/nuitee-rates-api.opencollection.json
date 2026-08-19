@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LiteAPI (Nuitée) Hotel Booking Rates API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search hotel rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.liteapi.travel/v3.0/hotels/rates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search for real-time room rates and availability across multiple hotels by hotel IDs, city, coordinates, place, or IATA code."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
