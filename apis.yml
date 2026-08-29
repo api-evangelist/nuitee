@@ -148,6 +148,9 @@ apis:
   - type: Documentation
     url: https://docs.liteapi.travel/docs/webhooks
 common:
+- type: CapabilityMap
+  url: capabilities/nuitee-capability-edges.yml
+  name: Nuitée (LiteAPI) Business Capability Map
 - type: AgenticAccess
   url: agentic-access/nuitee-agentic-access.yml
 - type: DomainSecurity

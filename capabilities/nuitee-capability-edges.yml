@@ -1,0 +1,26 @@
+slug: nuitee
+provider: Nuitée (LiteAPI)
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Travel & Hospitality
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Booking
+  spec_file: nuitee-booking-api-openapi.yml
+  capability_id: BC-4020.10
+  capability_id_l1: BC-4020
+  capability_name: Reservation Capture
+  confidence: 0.75
+  evidence: POST /rates/prebook  Prebook a rate; POST /rates/book  Confirm a booking; GET /bookings/{bookingId}  Retrieve
+    a booking; PUT /bookings/{bookingId}  Cancel a booking
+  reason: 'Plainly the hotel reservation lifecycle: prebook, confirm, retrieve and cancel. L1 Reservation
+    & Booking Management is certain; the L2 leans to Reservation Capture (prebook/book) although the cancel
+    operation also touches Booking Modification & Cancellation, hence 0.75 on the narrower id.'
