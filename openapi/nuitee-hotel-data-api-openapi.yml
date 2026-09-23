@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: LiteAPI (Nuitée) Hotel Booking Hotel Data API
   description: LiteAPI by Nuitée is a unified hotel-booking and distribution API. It provides static hotel content and reference data, real-time rates and availability, the prebook/book/retrieve/cancel reservation flow, and loyalty and voucher management over 2M+ properties. All requests are authenticated with an X-API-Key header; a free sandbox key is available.
@@ -136,6 +136,22 @@ paths:
           description: A list of IATA airport and city codes.
 components:
   schemas:
+    ReviewsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              rating:
+                type: number
+              text:
+                type: string
+              date:
+                type: string
     HotelListResponse:
       type: object
       properties:
@@ -160,22 +176,6 @@ components:
           type: number
         starRating:
           type: number
-    ReviewsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              rating:
-                type: number
-              text:
-                type: string
-              date:
-                type: string
     HotelDetailResponse:
       type: object
       properties:

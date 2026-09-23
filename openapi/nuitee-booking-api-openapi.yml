@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: LiteAPI (Nuitée) Hotel Booking API
   description: LiteAPI by Nuitée is a unified hotel-booking and distribution API. It provides static hotel content and reference data, real-time rates and availability, the prebook/book/retrieve/cancel reservation flow, and loyalty and voucher management over 2M+ properties. All requests are authenticated with an X-API-Key header; a free sandbox key is available.
@@ -107,6 +107,38 @@ paths:
                 $ref: '#/components/schemas/BookingResponse'
 components:
   schemas:
+    PrebookRequest:
+      type: object
+      required:
+      - offerId
+      properties:
+        offerId:
+          type: string
+          description: The rate offer identifier returned by /hotels/rates.
+        usePaymentSdk:
+          type: boolean
+    BookingResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            bookingId:
+              type: string
+            status:
+              type: string
+            hotelConfirmationCode:
+              type: string
+            checkin:
+              type: string
+              format: date
+            checkout:
+              type: string
+              format: date
+            price:
+              type: number
+            currency:
+              type: string
     BookRequest:
       type: object
       required:
@@ -139,38 +171,6 @@ components:
           properties:
             method:
               type: string
-    BookingResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            bookingId:
-              type: string
-            status:
-              type: string
-            hotelConfirmationCode:
-              type: string
-            checkin:
-              type: string
-              format: date
-            checkout:
-              type: string
-              format: date
-            price:
-              type: number
-            currency:
-              type: string
-    PrebookRequest:
-      type: object
-      required:
-      - offerId
-      properties:
-        offerId:
-          type: string
-          description: The rate offer identifier returned by /hotels/rates.
-        usePaymentSdk:
-          type: boolean
     PrebookResponse:
       type: object
       properties:

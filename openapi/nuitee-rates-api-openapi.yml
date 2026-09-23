@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: LiteAPI (Nuitée) Hotel Booking Rates API
   description: LiteAPI by Nuitée is a unified hotel-booking and distribution API. It provides static hotel content and reference data, real-time rates and availability, the prebook/book/retrieve/cancel reservation flow, and loyalty and voucher management over 2M+ properties. All requests are authenticated with an X-API-Key header; a free sandbox key is available.
@@ -38,20 +38,6 @@ paths:
                 $ref: '#/components/schemas/RatesSearchResponse'
 components:
   schemas:
-    RatesSearchResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              hotelId:
-                type: string
-              roomTypes:
-                type: array
-                items:
-                  type: object
     RatesSearchRequest:
       type: object
       required:
@@ -101,6 +87,20 @@ components:
           description: Percentage commission margin added to the net rate.
         refundableRatesOnly:
           type: boolean
+    RatesSearchResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              hotelId:
+                type: string
+              roomTypes:
+                type: array
+                items:
+                  type: object
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
