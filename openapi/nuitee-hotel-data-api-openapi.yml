@@ -136,6 +136,13 @@ paths:
           description: A list of IATA airport and city codes.
 components:
   schemas:
+    HotelListResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hotel'
     ReviewsResponse:
       type: object
       properties:
@@ -152,13 +159,11 @@ components:
                 type: string
               date:
                 type: string
-    HotelListResponse:
+    HotelDetailResponse:
       type: object
       properties:
         data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Hotel'
+          $ref: '#/components/schemas/Hotel'
     Hotel:
       type: object
       properties:
@@ -176,11 +181,6 @@ components:
           type: number
         starRating:
           type: number
-    HotelDetailResponse:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Hotel'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -107,38 +107,6 @@ paths:
                 $ref: '#/components/schemas/BookingResponse'
 components:
   schemas:
-    PrebookRequest:
-      type: object
-      required:
-      - offerId
-      properties:
-        offerId:
-          type: string
-          description: The rate offer identifier returned by /hotels/rates.
-        usePaymentSdk:
-          type: boolean
-    BookingResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            bookingId:
-              type: string
-            status:
-              type: string
-            hotelConfirmationCode:
-              type: string
-            checkin:
-              type: string
-              format: date
-            checkout:
-              type: string
-              format: date
-            price:
-              type: number
-            currency:
-              type: string
     BookRequest:
       type: object
       required:
@@ -171,6 +139,28 @@ components:
           properties:
             method:
               type: string
+    BookingResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            bookingId:
+              type: string
+            status:
+              type: string
+            hotelConfirmationCode:
+              type: string
+            checkin:
+              type: string
+              format: date
+            checkout:
+              type: string
+              format: date
+            price:
+              type: number
+            currency:
+              type: string
     PrebookResponse:
       type: object
       properties:
@@ -185,6 +175,16 @@ components:
               type: number
             currency:
               type: string
+    PrebookRequest:
+      type: object
+      required:
+      - offerId
+      properties:
+        offerId:
+          type: string
+          description: The rate offer identifier returned by /hotels/rates.
+        usePaymentSdk:
+          type: boolean
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
