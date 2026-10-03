@@ -112,6 +112,16 @@ paths:
           description: Deletion confirmation.
 components:
   schemas:
+    LoyaltyRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - enabled
+          - disabled
+        cashbackRate:
+          type: number
     VoucherRequest:
       type: object
       properties:
@@ -129,16 +139,6 @@ components:
         validityEnd:
           type: string
           format: date
-    LoyaltyRequest:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - enabled
-          - disabled
-        cashbackRate:
-          type: number
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
