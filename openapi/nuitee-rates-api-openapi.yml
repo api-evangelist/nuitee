@@ -38,6 +38,20 @@ paths:
                 $ref: '#/components/schemas/RatesSearchResponse'
 components:
   schemas:
+    RatesSearchResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              hotelId:
+                type: string
+              roomTypes:
+                type: array
+                items:
+                  type: object
     RatesSearchRequest:
       type: object
       required:
@@ -87,20 +101,6 @@ components:
           description: Percentage commission margin added to the net rate.
         refundableRatesOnly:
           type: boolean
-    RatesSearchResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              hotelId:
-                type: string
-              roomTypes:
-                type: array
-                items:
-                  type: object
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

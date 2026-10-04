@@ -107,6 +107,38 @@ paths:
                 $ref: '#/components/schemas/BookingResponse'
 components:
   schemas:
+    BookRequest:
+      type: object
+      required:
+      - prebookId
+      - holder
+      - guests
+      properties:
+        prebookId:
+          type: string
+        holder:
+          type: object
+          properties:
+            firstName:
+              type: string
+            lastName:
+              type: string
+            email:
+              type: string
+        guests:
+          type: array
+          items:
+            type: object
+            properties:
+              firstName:
+                type: string
+              lastName:
+                type: string
+        payment:
+          type: object
+          properties:
+            method:
+              type: string
     BookingResponse:
       type: object
       properties:
@@ -153,38 +185,6 @@ components:
           description: The rate offer identifier returned by /hotels/rates.
         usePaymentSdk:
           type: boolean
-    BookRequest:
-      type: object
-      required:
-      - prebookId
-      - holder
-      - guests
-      properties:
-        prebookId:
-          type: string
-        holder:
-          type: object
-          properties:
-            firstName:
-              type: string
-            lastName:
-              type: string
-            email:
-              type: string
-        guests:
-          type: array
-          items:
-            type: object
-            properties:
-              firstName:
-                type: string
-              lastName:
-                type: string
-        payment:
-          type: object
-          properties:
-            method:
-              type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
