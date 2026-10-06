@@ -41,7 +41,7 @@ tags:
 - Distribution
 - Hospitality
 created: '2026-06-25'
-modified: '2026-06-25'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: nuitee:nuitee-booking-api
@@ -149,6 +149,8 @@ apis:
   - type: Documentation
     url: https://docs.liteapi.travel/docs/webhooks
 common:
+- url: https://www.liteapi.travel/blog/
+  type: Blog
 - type: CapabilityMap
   url: capabilities/nuitee-capability-edges.yml
   name: Nuitée (LiteAPI) Business Capability Map
