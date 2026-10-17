@@ -136,22 +136,6 @@ paths:
           description: A list of IATA airport and city codes.
 components:
   schemas:
-    ReviewsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              rating:
-                type: number
-              text:
-                type: string
-              date:
-                type: string
     HotelDetailResponse:
       type: object
       properties:
@@ -174,6 +158,22 @@ components:
           type: number
         starRating:
           type: number
+    ReviewsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              rating:
+                type: number
+              text:
+                type: string
+              date:
+                type: string
     HotelListResponse:
       type: object
       properties:
