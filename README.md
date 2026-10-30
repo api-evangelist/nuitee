@@ -1,4 +1,4 @@
-# Nuitée (LiteAPI) (nuitee)
+# Nuitée (LiteAPI)
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,140 +66,122 @@
 
 Nuitée is the travel technology company behind LiteAPI, a hotel-booking and distribution API platform. LiteAPI exposes a unified REST interface over 2M+ hotels for static content, real-time rates and availability, the prebook/book/cancel reservation flow, loyalty and vouchers, and booking webhooks, with a commission/markup revenue model and a free sandbox.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/nuitee/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/nuitee/refs/heads/main/apis.yml)
+**Areas:** Travel · Hotels · Booking · Distribution · Hospitality
 
-## Tags
+## Nuitée (LiteAPI) on APIs.io
 
-- Travel
-- Hotels
-- Booking
-- Distribution
-- Hospitality
+Everything profiled for Nuitée (LiteAPI) is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/nuitee/](https://apis.io/providers/nuitee/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (4)
 
-- **Created:** 2026-06-25
-- **Modified:** 2026-06-25
+- [Nuitée (LiteAPI) Booking API](https://apis.io/apis/nuitee/nuitee-booking-api/) — Prebook, book, retrieve, list, and cancel reservations.
+- [Nuitée (LiteAPI) Hotel Data API](https://apis.io/apis/nuitee/nuitee-hotel-data-api/) — Static hotel content, reviews, and reference data.
+- [Nuitée (LiteAPI) Loyalty API](https://apis.io/apis/nuitee/nuitee-loyalty-api/) — Loyalty program configuration, points, and vouchers.
+- [Nuitée (LiteAPI) Rates API](https://apis.io/apis/nuitee/nuitee-rates-api/) — Real-time room rates and availability search.
 
-## APIs
+### Published properties
 
-### LiteAPI Hotel Data API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Static hotel content and supporting reference data - hotel lists and details, guest reviews, plus countries, cities, currencies, facilities, chains, hotel types, places, and IATA codes.
+#### Agentic access (1)
 
-- **Human URL:** [https://docs.liteapi.travel/reference/api-endpoints-overview](https://docs.liteapi.travel/reference/api-endpoints-overview)
-- **Base URL:** `https://api.liteapi.travel/v3.0`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Nuitee Agentic Access](https://apis.io/agentic-access/nuitee/nuitee-agentic-access/)
 
-- Hotels
-- Static Content
-- Reviews
-- Search
+#### Collections (5)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://docs.liteapi.travel/reference/get_data-hotels)
-- [API Reference](https://docs.liteapi.travel/reference/api-endpoints-overview)
-- [OpenAPI](openapi/nuitee-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/nuitee.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nuitee.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [LiteAPI (Nuitée) Hotel Booking API](https://apis.io/collections/nuitee/open-nuitee/)
+- [LiteAPI (Nuitée) Hotel Booking API](https://apis.io/collections/nuitee/open-nuitee-booking-api/)
+- [LiteAPI (Nuitée) Hotel Booking Hotel Data API](https://apis.io/collections/nuitee/open-nuitee-hotel-data-api/)
+- [LiteAPI (Nuitée) Hotel Booking Loyalty API](https://apis.io/collections/nuitee/open-nuitee-loyalty-api/)
+- [LiteAPI (Nuitée) Hotel Booking Rates API](https://apis.io/collections/nuitee/open-nuitee-rates-api/)
 
-### LiteAPI Rates Search API
+#### Security (2)
 
-Real-time room rates and availability across multiple hotels by hotel IDs, city, coordinates, place, or IATA code, with occupancy, currency, board type, refundability, and margin/markup commission controls.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://docs.liteapi.travel/reference/post_hotels-rates](https://docs.liteapi.travel/reference/post_hotels-rates)
-- **Base URL:** `https://api.liteapi.travel/v3.0`
+- [Nuitee Authentication](https://apis.io/security/nuitee/nuitee-authentication/)
+- [Nuitee Domain Security](https://apis.io/security/nuitee/nuitee-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Rates
-- Availability
-- Search
-- Pricing
+Published plans, tiers and prices.
 
-#### Properties
+- [Nuitee Plans Pricing](https://apis.io/plans/nuitee/nuitee-plans-pricing/)
 
-- [Documentation](https://docs.liteapi.travel/reference/post_hotels-rates)
-- [API Reference](https://docs.liteapi.travel/reference/api-endpoints-overview)
-- [OpenAPI](openapi/nuitee-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/nuitee.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nuitee.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### LiteAPI Booking API
+Published request limits.
 
-The reservation lifecycle - prebook a selected rate to lock price and obtain a prebookId, confirm the booking with guest and payment details, retrieve booking details, list bookings, and cancel a booking.
+- [Nuitee Rate Limits](https://apis.io/rate-limits/nuitee/nuitee-rate-limits/)
 
-- **Human URL:** [https://docs.liteapi.travel/reference/post_rates-prebook](https://docs.liteapi.travel/reference/post_rates-prebook)
-- **Base URL:** `https://api.liteapi.travel/v3.0`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Booking
-- Prebook
-- Reservations
-- Cancellation
+- [Nuitee Finops](https://apis.io/finops/nuitee/nuitee-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://docs.liteapi.travel/reference/post_rates-prebook)
-- [API Reference](https://docs.liteapi.travel/reference/api-endpoints-overview)
-- [OpenAPI](openapi/nuitee-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/nuitee.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nuitee.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### LiteAPI Loyalty and Vouchers API
-
-Loyalty program configuration with cashback rates, guest loyalty point balances and redemption, and discount voucher creation, listing, updates, status toggling, and deletion.
-
-- **Human URL:** [https://docs.liteapi.travel/reference/get_loyalties](https://docs.liteapi.travel/reference/get_loyalties)
-- **Base URL:** `https://api.liteapi.travel/v3.0`
-
-#### Tags
-
-- Loyalty
-- Cashback
-- Vouchers
-- Rewards
-
-#### Properties
-
-- [Documentation](https://docs.liteapi.travel/reference/get_loyalties)
-- [API Reference](https://docs.liteapi.travel/reference/api-endpoints-overview)
-- [OpenAPI](openapi/nuitee-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/nuitee.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nuitee.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### LiteAPI Webhooks
-
-Event notifications that push booking lifecycle changes (such as new and cancelled reservations) to a subscriber-configured HTTPS callback URL.
-
-- **Human URL:** [https://docs.liteapi.travel/docs/webhooks](https://docs.liteapi.travel/docs/webhooks)
-- **Base URL:** `https://api.liteapi.travel/v3.0`
-
-#### Tags
-
-- Webhooks
-- Events
-- Notifications
-
-#### Properties
-
-- [Documentation](https://docs.liteapi.travel/docs/webhooks)
-- [OpenAPI](openapi/nuitee-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/liteapi-travel)
-- [LinkedIn](https://www.linkedin.com/company/nuitee)
 - [Website](https://www.liteapi.travel)
 - [Documentation](https://docs.liteapi.travel)
-- [Plans](plans/nuitee-plans-pricing.yml)
-- [Rate Limits](rate-limits/nuitee-rate-limits.yml)
-- [Fin Ops](finops/nuitee-finops.yml)
+- [Blog](https://www.liteapi.travel/blog/)
+- [GitHub](https://github.com/liteapi-travel)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 24.3** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 45.9 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 7.9 |
+
+**Agent readiness 19.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/nuitee/](https://apis.io/providers/nuitee/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Nuitée (LiteAPI): the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/nuitee/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
